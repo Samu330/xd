@@ -2119,14 +2119,14 @@ module.exports = kconfig = async (kill, message) => {
 
         case 'kickall':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
-            const isdonogroup = sender.id === chat.groupMetadata.owner
+            const isGroupAdmins = sender.id === chat.groupMetadata.owner
 			if (!isGroupMsg) return kill.reply(from, mess.error.Gp, id)
             if (!isdonogroup) return kill.reply(from, 'Apenas o dono do grupo pode usar isso.', id)
             if (!isBotGroupAdmins) return kill.reply(from, 'Preciso ser uma ademira', id)
             const allMem = await kill.getGroupMembers(groupId)
             for (let i = 0; i < allMem.length; i++) {
                 if (groupAdmins.includes(allMem[i].id)) {
-                    console.log('Pulei um ADM.')
+                    console.log('Falto un admin xd.')
                 } else {
                     await kill.removeParticipant(groupId, allMem[i].id)
                 }
